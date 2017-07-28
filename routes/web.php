@@ -42,3 +42,34 @@ Route::get('/latihan/{nama}', function() {
 	return 'nama:  '.$a;
 			
 });
+Route::get('/testmodel', function(){
+	$a =App\post::all();
+return $a;
+});
+Route::get('/testmodel1', function(){
+	$a =App\post::find(1);
+return $a;
+});
+Route::get('/testmodel2', function(){
+	$a =App\post::where('title','like','%cepat nikah%')->get();
+return $a;
+});
+Route::get('/testmodel3', function(){
+	$post =App\post::find(1);
+	$post->title ="ciri keluarga sakinah";
+return $post;
+});
+Route::get('/testmodel4', function(){
+	$post =App\post::find(1);
+	$post->delete();
+});
+Route::get('/testmodel5', function(){
+	$post =new App\post;
+	$post->title ="7 amalan pembuka jodoh2";
+	$post->content ="solat malam,sedekah,puasa sunah,silahturahmi,senyum,dan,tobat";
+	$post->save();
+return $post;
+});
+Route::get('cektampilan', function() {
+	return view('layouts.master');
+});
