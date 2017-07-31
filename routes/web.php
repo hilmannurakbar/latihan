@@ -73,22 +73,25 @@ return $post;
 Route::get('cektampilan', function() {
 	return view('layouts.master');
 });
-Route::get('/orangtua', function() {
-$ortu = App\orang_tua::all();
-	foreach ($ortu as $key) {
-		echo $key->nama_ayah;
-		echo " dengan ";
-		echo $key->nama_ibu;
-		echo " mempunyai anak";
-		foreach ($key->siswa as $data) {
-			echo "<li>".$data->nama."</li>";
-			echo "<hr>";
-		}
+// Route::get('/orangtua', function() {
+// $ortu = App\orang_tua::all();
+// 	foreach ($ortu as $key) {
+// 		echo $key->nama_ayah;
+// 		echo " dengan ";
+// 		echo $key->nama_ibu;
+// 		echo " mempunyai anak";
+// 		foreach ($key->siswa as $data) {
+// 			echo "<li>".$data->nama."</li>";
+// 			echo "<hr>";
+// 		}
 		
-	}
-});
+// 	}
+// });
+
 
 Route::get('/coba', 'myController@index');
 Route::get('/coba2','MyController@tampilan');
 Route::get('/coba3','MyController@tampilan2');
 Route::get('/coba4','MyController@percobaan');
+
+Route::resource('orangtua','orangtuacontroller');
