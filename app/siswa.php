@@ -14,7 +14,7 @@ class siswa extends Model
  
     public function orang_tua () 
     {
-    	return $this->hasMany('App\orang_tua', 'orangtua_id');
+    	return $this->belongsTo('App\orang_tua', 'orangtua_id');
     }
 }
 
